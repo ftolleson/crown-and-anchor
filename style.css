@@ -1,0 +1,58 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.board {
+  border: 3px solid goldenrod;
+  display: flex;
+  flex-flow: row wrap;
+  width: 50%;
+}
+
+.square {
+  align-items: center;
+  box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 33%;
+  justify-content: center;
+  min-height: 100px;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+}
+
+.result {
+  border: 5px solid cadetblue;
+  width: 100px;
+}
+
+.one {
+  background: dodgerblue;
+}
+.two {
+  background: gold;
+}
+.three {
+  background: tomato;
+}
+.four {
+  background: lightcoral;
+}
+.five {
+  background: rebeccapurple;
+}
+.six {
+  background: paleturquoise;
+}
