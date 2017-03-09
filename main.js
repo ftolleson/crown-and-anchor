@@ -46,19 +46,20 @@ document.addEventListener("DOMContentLoaded", function(event){
   }
 
   function winnings(hand) {
-    var winnings = 0;
+    var set = new Set();
     for (var die = 0; die < hand.length; die++) {
       var face = hand[die];
-      // Find amount for face
       var betAmount = state[face];
-      // If > 0 add value to bank total
-
       if (betAmount > 0) {
+        set.add(face);
         bank += betAmount;
-        bankEl.innerText = bank;
       }
     }
-    // Reset tiles to 0
+    set.forEach(function(value) {
+      bank += state[value];
+    });
+    bankEl.innerText = bank;
+    console.log(set);
     Object.keys(state).forEach( key => state[key] = 0 )
     squares.forEach(square => square.lastElementChild.innerText = 0)
   }
