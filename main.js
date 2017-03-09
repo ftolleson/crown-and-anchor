@@ -2,27 +2,27 @@ document.addEventListener("DOMContentLoaded", function(event){
   const button = document.querySelector('button');
   const bankEl = document.querySelector('.bank');
   const squares = document.querySelectorAll('.square');
+  const bet = document.querySelectorAll('.amount');
   const resultDisplay = document.querySelector('.result');
-  const state = {"👽": 0, "🦁": 0, "💩": 0, "😻": 0, "🤖": 0, "🤡": 0}
+  const state = {"🙊": 0, "🦁": 0, "💩": 0, "🦄": 0, "🤖": 0, "🤡": 0}
   let bank = 10;
 
   button.addEventListener('click', randomSquare);
-  squares.forEach(square => square.addEventListener('click', (e) => {
-    placeBet(e);
-  }));
+  squares.forEach(square => square.addEventListener('click', placeBet, true));
 
   function placeBet(e) {
-    var face = e.target.firstElementChild.innerText;
+    var face = this.firstElementChild.innerText;
 
     if(bank > 0) {
-      addBet(e, face)
+      this.lastElementChild.classList.add('coin');
+      addBet(this, face)
       balanceBank();
     }
   }
 
-  function addBet(e, face) {
+  function addBet(square, face) {
     state[face] += 1
-    e.target.lastElementChild.innerHTML = state[face];
+    square.lastElementChild.innerText = state[face];
   }
 
   function balanceBank() {
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event){
       var square = squares[index].firstElementChild.innerText;
       hand.push(square);
     }
-    resultDisplay.innerHTML = hand;
+    resultDisplay.innerHTML = hand.join(' ');
     winnings(hand);
   }
 
@@ -55,13 +55,15 @@ document.addEventListener("DOMContentLoaded", function(event){
         bank += betAmount;
       }
     }
+
     set.forEach(function(value) {
       bank += state[value];
     });
+
     bankEl.innerText = bank;
-    console.log(set);
-    Object.keys(state).forEach( key => state[key] = 0 )
-    squares.forEach(square => square.lastElementChild.innerText = 0)
+    Object.keys(state).forEach( key => state[key] = 0 );
+    squares.forEach(square => square.lastElementChild.innerText = 0);
+    squares.forEach(square => square.lastElementChild.classList.remove("coin"));
   }
 
 });
