@@ -180,8 +180,6 @@ button:active {
 
 .four {
   background: palegreen;
-  flex: 1 1 auto;
-  min-width: 33%;
 }
 
 .five {
@@ -190,4 +188,6 @@ button:active {
 
 .six {
   background: paleturquoise;
+  flex: 1 1 auto;
+  min-width: 33%;
 }
