@@ -166,19 +166,28 @@ button:active {
 
 .one {
   background: dodgerblue;
+  flex: 1 1 auto;
+  min-width: 33%;
 }
+
 .two {
   background: gold;
 }
+
 .three {
   background: tomato;
 }
+
 .four {
   background: palegreen;
+  flex: 1 1 auto;
+  min-width: 33%;
 }
+
 .five {
   background: rebeccapurple;
 }
+
 .six {
   background: paleturquoise;
 }
