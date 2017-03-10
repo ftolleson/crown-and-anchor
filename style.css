@@ -10,23 +10,61 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  background-color:#3BC1AC;
+  background-image:
+  radial-gradient(circle at 100% 150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, #42D2BB 10%, #3BC1AC 11%, #3BC1AC 23%, #42D2BB 24%, #42D2BB 30%, #3BC1AC 31%, #3BC1AC 43%, #42D2BB 44%, #42D2BB 50%, #3BC1AC 51%, #3BC1AC 63%, #42D2BB 64%, #42D2BB 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+  margin: 2rem;
 }
 
 h1 {
-  font-size: 3em;
+  width:calc(100% + 4rem);
+  margin: -2rem 0 2rem -2rem;
+  padding:.5rem;
+  background: #ffc600;
+  border-bottom: 5px solid #F3C010;
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: .2rem;
+  color: white;
+  text-shadow: 1px 1px 1px #333;
 }
 
 h2 {
-  color: darkgoldenrod;
   font-size: 2em;
 }
 
+.wrapper {
+  overflow: hidden;
+  padding: 2rem;
+  width: 50rem;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 2px 2px 30px -10px #333;
+  border-radius:1rem;
+}
+
+.gameWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 15rem;
+  align-items: center;
+}
 .board {
   display: flex;
   flex-flow: row wrap;
-  flex-basis: 50%;
+  flex-basis: 25rem;
+  box-shadow: 0px 0px 25px -8px #111;
 }
 
 .square {
@@ -52,7 +90,6 @@ h2 {
   min-height: 50px;
   line-height: 2.5em;
   color: transparent;
-  outline: none;
 }
 
 .coin {
@@ -63,24 +100,32 @@ h2 {
   color: darkgoldenrod;
 }
 
-.gameWrapper {
-  display: flex;
-  justify-content: center;
-}
 
-.contentWrapper {
+.bank {
   display: flex;
-  margin: 0 2%;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-basis: 30%;
   align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: white;
+  background: #ffc600;
+  border-radius: 50px;
+  height: 50px;
+  min-width: 150px;
+  width: 70%;
+  text-shadow: 1px 1px 1px #333;
+  position: relative;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.05)
 }
 
-.rollWrapper {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
+.bank:before {
+  background-image: url(coin.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 40px;
+  min-width: 40px;
+  content: ' ';
+  position: absolute;
+  left: 5px;
 }
 
 .result {
@@ -97,35 +142,23 @@ h2 {
 button {
   width: 100%;
   height: 50px;
-  border-radius: 10px;
+  border-radius: 1rem;
   border: none;
-  background: teal;
+  background: #3BC1AC;
   color: white;
   font-family: 'Luckiest Guy', sans-serif;
   font-size: 2em;
   line-height: 2em;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
+  text-shadow: 1px 1px 1px #333;
 }
 
 button:hover {
-  font-size: 3em;
-  line-height: 1.2em;
+  box-shadow: 2px 3px 10px -2px rgba(0, 0, 0, 0.5);
 }
 
-.bank {
-  background-image: url(coin.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  min-height: 100px;
-  min-width: 100px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  background-position: center;
-  justify-content: center;
-  font-size: 2em;
-  color: darkgoldenrod;
-  margin-bottom: 30%;
+button:active {
+  transform: translateY(2px);
 }
 
 .one {
