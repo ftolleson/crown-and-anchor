@@ -152,8 +152,11 @@ button {
   transition-duration: 0.5s;
   text-shadow: 1px 1px 1px #333;
 }
+button:disabled {
+  opacity: 0.6;
+}
 
-button:hover {
+button:hover:enabled {
   box-shadow: 2px 3px 10px -2px rgba(0, 0, 0, 0.5);
 }
 

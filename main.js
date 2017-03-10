@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event){
   const state = {"🙊": 0, "🦁": 0, "💩": 0, "🦄": 0, "🤖": 0, "🤡": 0}
   let bank = 10;
 
+  button.disabled = true;
   button.addEventListener('click', randomSquare);
   squares.forEach(square => square.addEventListener('click', placeBet, true));
 
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event){
       this.lastElementChild.classList.add('coin');
       addBet(this, face)
       balanceBank();
+      button.disabled = false;
     }
   }
 
@@ -61,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function(event){
     });
 
     bankEl.innerText = bank;
+    button.disabled = true;
     Object.keys(state).forEach( key => state[key] = 0 );
     squares.forEach(square => square.lastElementChild.innerText = 0);
     squares.forEach(square => square.lastElementChild.classList.remove("coin"));
